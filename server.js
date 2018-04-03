@@ -13,6 +13,7 @@ app.get('/', function (req, res){
 
 io.on('connection', socket => {
   console.log('Someone has connected')
+  socket.emit('message', `A new user, ${Date.now()}, has connected.`)
 })
 
 http.listen(process.env.PORT || 3000, function(){
